@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template1.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAppointmentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_firstname}"/>
+                    <h:outputText value="#{appointmentController.selected.firstname}" title="#{bundle.ViewAppointmentTitle_firstname}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_lastname}"/>
+                    <h:outputText value="#{appointmentController.selected.lastname}" title="#{bundle.ViewAppointmentTitle_lastname}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_phone}"/>
+                    <h:outputText value="#{appointmentController.selected.phone}" title="#{bundle.ViewAppointmentTitle_phone}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_email}"/>
+                    <h:outputText value="#{appointmentController.selected.email}" title="#{bundle.ViewAppointmentTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_model}"/>
+                    <h:outputText value="#{appointmentController.selected.model}" title="#{bundle.ViewAppointmentTitle_model}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_brand}"/>
+                    <h:outputText value="#{appointmentController.selected.brand}" title="#{bundle.ViewAppointmentTitle_brand}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_services}"/>
+                    <h:outputText value="#{appointmentController.selected.services}" title="#{bundle.ViewAppointmentTitle_services}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_message}"/>
+                    <h:outputText value="#{appointmentController.selected.message}" title="#{bundle.ViewAppointmentTitle_message}"/>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_date}"/>
+                    <h:outputText value="#{appointmentController.selected.date}" title="#{bundle.ViewAppointmentTitle_date}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAppointmentLabel_time}"/>
+                    <h:outputText value="#{appointmentController.selected.time}" title="#{bundle.ViewAppointmentTitle_time}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{appointmentController.destroyAndView}" value="#{bundle.ViewAppointmentDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAppointmentEditLink}"/>
+                <br />
+                <h:commandLink action="#{appointmentController.prepareCreate}" value="#{bundle.ViewAppointmentCreateLink}" />
+                <br />
+                <h:commandLink action="#{appointmentController.prepareList}" value="#{bundle.ViewAppointmentShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAppointmentIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+
+    </h:head>
+   
+    <h:body >
+        <ui:composition template="template.xhtml">
+            <ui:define name="content">
+<h:form prependId="false">
+			<table>
+				<tr>
+					<td>#{text['welcome.name']}</td>
+					<td><h:inputText id="name" styleClass="name">
+					<f:validator validatorId="UserNameValidator" />
+						</h:inputText>
+						<p>
+							<h:message for="name" style="color: red;" />
+						</p></td>
+				</tr>
+				<tr>
+					<td>#{text['welcome.selectcolor']}</td>
+					<td><p>
+							<input type="radio" name="color" checked="checked" value="black"
+								onclick="swapColor('black');" /><span style="color: black;">The Black</span>
+						</p>
+						<p>
+							<input type="radio" name="color" value="red"
+								onclick="swapColor('red');" /><span style="color: red;">The Red</span>
+						</p>
+						<p>
+							<input type="radio" name="color" value="blue"
+								onclick="swapColor('blue');" /><span style="color: blue;">The Blue</span>
+						</p>
+						<p>
+							<input type="radio" name="color" value="green"
+								onclick="swapColor('green');" /><span style="color: green;">The Green</span>
+						</p></td>
+				</tr>
+				<tr>
+
+					<td></td>
+                                        <td><h:commandButton action="#{actionProcessor.createNewUser}"
+							type="submit" value="To come in" /></td>
+				</tr>
+				<tr>
+					<h:message id="warnings" for="warnings" style="color:red;" />
+				</tr>
+			</table>
+		</h:form>
+ </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+		
+	

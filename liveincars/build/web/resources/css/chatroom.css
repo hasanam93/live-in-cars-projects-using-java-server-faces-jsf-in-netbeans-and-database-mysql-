@@ -1,0 +1,148 @@
+#messages {
+	text-align: center;
+}
+
+#messages_input {
+	background-color: #efefef;
+	text-align: left;
+	padding: 10px;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 1px;
+	border-radius: 10px;
+	margin: 0 auto;
+	width: 57%;
+	height: 45%;
+	word-wrap: break-word;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#userName {
+	position: relative;
+	left: -26%;
+	margin-top: 10px;
+	font-size: x-small;
+}
+
+#messages_output {
+	
+}
+
+#output_message {
+	padding: 10px;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 57%;
+	height: 20%;
+}
+
+#warning_for_output_message{
+	color: red;
+	font-size: small;
+}
+
+#messages_buttons {
+	margin-top: 5px;
+}
+
+#messages .send {
+	color: green;
+	border-color: green;
+	border-radius: 15px;
+	height: 40px;
+}
+
+#messages .leave {
+	color: red;
+	border-color: red;
+	border-radius: 10px;
+	height: 25px;
+	position: relative;
+	left: 5px;
+}
+
+#users {
+	float: right;
+	position: absolute;
+	left: 80%;
+	top: 7px;
+}
+
+#users_online {
+	background-color: #efefef;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 180px;
+	height: 180px;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+#users_online p {
+	position: relative;
+	text-align: right;
+	right: 5px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+#copyright {
+	text-align: center;
+	color: grey;
+	font-size: x-small;
+	left: 40%;
+	bottom: 0px;
+	position: fixed;
+}
+
+/*Messages*/
+.entire_black {
+	color: black;
+}
+
+.entire_red {
+	color: red;
+}
+
+.entire_blue {
+	color: blue;
+}
+
+.entire_green {
+	color: green;
+}
+
+.timeAndName {
+	text-decoration: underline;
+	font-size: small;
+}
+
+.text {
+	font-style: italic;
+}
+
+/*Users*/
+.user_black {
+	color: black;
+	font-size: small;
+}
+
+.user_red {
+	color: red;
+	font-size: small;
+}
+
+.user_blue {
+	color: blue;
+	font-size: small;
+}
+
+.user_green {
+	color: green;
+	font-size: small;
+}

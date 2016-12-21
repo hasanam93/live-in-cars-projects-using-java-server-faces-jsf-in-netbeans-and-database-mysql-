@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+<h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+   
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="header">
+                <h:form class="header1">
+                    <h:commandButton action="register.xhtml" value="Register"    />
+                    <h:commandButton action="Adminlogin.xhtml" value="admin"    /></h:form>
+            </ui:define>
+
+                   
+                    <ui:define name="content">
+               
+                    <f:loadBundle basename="resources.Bundle" var="msg"/>
+
+                    <h:head>
+                        <title><h:outputText value="#{bundle.welcomeTitle}" /></title>
+                        <h:outputStylesheet name="css/jsfcrud.css"/>
+                    </h:head>
+
+                    <h:body>                        <br />
+                        <center>
+                            <p:imageSwitch effect="zoom" slideshowAuto="true" slideshowSpeed="4000" >
+    <ui:repeat value="#{imagesView1.images}" var="image">
+        <p:graphicImage library="home" name="#{image}" alt="Image Description for #{image}"   styleClass="gall" rendered="true" title="#{image}"/>
+
+</ui:repeat>
+</p:imageSwitch>
+                        </center>
+                        
+                    </h:body>
+
+
+
+            
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

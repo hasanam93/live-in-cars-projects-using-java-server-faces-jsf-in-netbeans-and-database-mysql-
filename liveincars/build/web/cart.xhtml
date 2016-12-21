@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+
+    </h:head>
+   
+    <h:body >
+        <ui:composition template="template.xhtml">
+            <ui:define name="content">
+
+                   <h:form>
+                       <h:dataTable value="#{h.cart}" var="i" border="1" cellpadding="7px" style="border-collapse: collapse">
+                    <h:column>
+                        <f:facet name="header"></f:facet>
+                        #{i.p.name}
+                    </h:column>
+                    <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    $#{i.p.price}
+                    </h:column>
+                     <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                    <h:inputText value="#{i.quantity}" style="width: 20px"/>
+                    </h:column>
+                     <h:column>
+                    <f:facet name="header">Picture</f:facet>
+                    <h:graphicImage library="images" name="#{i.p.image}" width="50px" height="50px"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandButton value="delete" action="#{h.remove(i)}"/>
+                    </h:column>
+                           <f:facet name="footer">Total: $#{h.total}</f:facet>
+                </h:dataTable>
+                       <h:commandButton value="Update" action="#{h.update()}"/>
+                       <h:commandButton action="products.xhtml" value="continue shopping"    />
+                       <h:commandButton value="Payment" action="#{h.payment()}"/>
+            </h:form>
+                  
+
+
+
+               
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

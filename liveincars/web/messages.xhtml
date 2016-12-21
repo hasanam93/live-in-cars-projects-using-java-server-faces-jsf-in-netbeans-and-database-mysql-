@@ -1,0 +1,13 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:repeat var="message" value="#{userSession.unreadedMessages}">
+        <ui:param name="user" value="#{message.time}"></ui:param>
+		<p class="entire_#{user.color}">
+			<span class="timeAndName">#{message.time} #{user.name}</span>: <span
+				class="text">#{message.text}</span>
+		</p>
+	</ui:repeat>
+</ui:composition>

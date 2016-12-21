@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>ChatLet</title>
+	<h:outputStylesheet library="css" name="chatroom.css" />
+	<h:outputScript library="js" name="jquery-1.11.1.min.js" />
+	<h:outputScript> var messages_refreshInterval = #{settings['chatroom.messages.refreshInterval']};</h:outputScript>
+	<h:outputScript> var users_refreshInterval = #{settings['chatroom.users.refreshInterval']};</h:outputScript>
+	<h:outputScript library="js" name="chatroom.js" />
+</h:head>
+
+<h:body>
+	<div id="messages">
+		<h:form prependId="false">
+			<div id="messages_input"></div>
+			<div id="userName">
+				<ui:param name="user" value="#{userSession.user}"></ui:param>
+				you: <span style="color: #{user.color}">#{user.name}</span>
+			</div>
+			<div id="messages_output">
+				<h:inputTextarea id="output_message">
+					<f:validator validatorId="MessageInputValidator" />
+				</h:inputTextarea>
+			</div>
+			<div id="warnings"><h:message id="warning_for_output_message" for="output_message" /></div>
+			<div id="messages_buttons">
+				<h:commandButton id="messages_button_send" type="submit"
+					action="#{actionProcessor.sendMessage}"
+					value="#{text['chatroom.button.send']}" styleClass="send">
+					<f:ajax execute="output_message" render="warning_for_output_message"
+						onevent="chatLetService.sendingMessage" />
+				</h:commandButton>
+				<h:commandButton id="messages_button_leave" type="submit"
+					action="#{actionProcessor.leaveChat}" immediate="true"
+					value="#{text['chatroom.button.leave']}" styleClass="leave" />
+			</div>
+		</h:form>
+	</div>
+
+	<div id="users">
+		<div id="users_online"></div>
+	</div>
+	
+</h:body>
+</html>

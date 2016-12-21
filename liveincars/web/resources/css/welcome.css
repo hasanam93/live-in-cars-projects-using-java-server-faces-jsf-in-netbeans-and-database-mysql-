@@ -1,0 +1,29 @@
+#inputs {
+	text-align: center;
+}
+
+#inputs table {
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+p {
+	margin: 0;
+}
+
+td {
+	text-align: left;
+	vertical-align: baseline;
+	padding: 25;
+}
+#copyright {
+	text-align: center;
+	color: grey;
+	font-size: x-small;
+	left: 40%;
+	bottom: 0px;
+	position: fixed;
+}

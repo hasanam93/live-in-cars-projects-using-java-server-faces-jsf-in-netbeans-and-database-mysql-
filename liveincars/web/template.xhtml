@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+                <h:outputStylesheet name="css/jsfcrud.css"/>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="150" resizable="true" closable="true" collapsible="true">
+                    
+                    <h:form class="header">
+                        <script type="text/javascript" src="websocket.js"></script>
+                        Key word:<h:inputText value="#{proContrl.keyword}"/>
+                        
+                        <h:commandButton value="search" action="#{proContrl.search()}"/>
+                        
+                        
+                         
+                   
+                        <center><h1 class="title">#{bundle.liveincars}</h1></center>
+                        <h:panelGrid columns="2">
+
+		<h:outputText value="#{bundle['Bundle.language']}"/>
+		<h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
+			valueChangeListener="#{language.countryLocaleCodeChanged}">
+   			<f:selectItems value="#{language.countriesInMap}" />
+   		</h:selectOneMenu>
+
+	</h:panelGrid>
+                    </h:form> 
+                    
+                    <br />
+                    <ui:insert name="header"/>
+                </p:layoutUnit>
+                
+                
+                <p:layoutUnit   position="south" size="100" closable="true" collapsible="true">   
+                 <p:dock>
+                   <p:menuitem value="#{bundle.home}" icon="/resources/icon/icon1.png" url="index.xhtml"/>
+                   <p:menuitem value="#{bundle.register}" icon="/resources/icon/icon2.png" url="register.xhtml"/>
+                   <p:menuitem value="#{bundle.products}" icon="/resources/icon/icon3.gif" url="products.xhtml"/>
+                   <p:menuitem value="#{bundle.appointment}" icon="/resources/icon/icon4.png" url="/appointment/create.xhtml"/>
+                   <p:menuitem value="#{bundle.welcome}" icon="/resources/icon/icon5.png" url="welcome.xhtml"/>
+                   <p:menuitem value="#{bundle.cart}" icon="/resources/icon/icon6.png" url="cart.xhtml"/>
+                   <p:menuitem value="#{bundle.aboutus}" icon="/resources/icon/icon7.png" url="aboutus.xhtml"/>
+                   <p:menuitem value="#{bundle.contactus}" icon="/resources/icon/icon8.jpg" url="accordionPanel.xhtml"/>
+                    <p:menuitem value="#{bundle.statistics}" icon="/resources/icon/icon9.png" url="animate.xhtml"/>
+                   <p:menuitem value="#{bundle.feedback}" icon="/resources/icon/icon10.jpg" url="mail.xhtml"/></p:dock>
+                   <center><p class="footer">#{bundle.copyright}</p></center>
+                </p:layoutUnit>
+
+                <p:layoutUnit header="Menu" position="west" collapsible="true" resizable="true" size="150">
+                
+                <h:form id="menuForm">
+                    <p:commandLink id="home" ajax="false" action="/index" value="#{bundle.home}"/>
+                    <br/>
+                    <p:commandLink id="feedback" ajax="false" action="/register" value="#{bundle.register}"/>
+                    <br/>
+                    <p:commandLink id="products" ajax="false" action="/products" value="#{bundle.products}"/>
+                    <br/>
+                    <p:commandLink id="appointment" ajax="false" action="/appointment/Create" value="#{bundle.appointment}"/>
+                    <br/>
+                    <p:commandLink id="messageCenter" ajax="false" action="/welcome" value="#{bundle.welcome}"/>
+                    <br/>
+                    <p:commandLink id="cart" ajax="false" action="/cart" value="#{bundle.cart}"/>
+                    <br/>
+                    <p:commandLink id="aboutus" ajax="false" action="/aboutus" value="#{bundle.aboutus}"/>
+                    <br/>
+                    <p:commandLink id="contactus" ajax="false" action="/accordionPanel" value="#{bundle.contactus}"/>
+                    <br/>
+                    <p:commandLink id="statistics" ajax="false" action="/animate" value="#{bundle.statistics}"/>
+                    <br/>
+                    <p:commandLink id="feedbac" ajax="false" action="/mail" value="#{bundle.feedback}"/>
+                    <br/>
+                   
+                </h:form>
+            </p:layoutUnit>
+           
+
+                <p:layoutUnit position="center">
+                    <f:loadBundle basename="resources.Bundle" var="msg"/>
+                    
+                    <h:head>
+                        <title><h:outputText value="#{bundle.welcomeTitle}" /></title>
+                        <h:outputStylesheet name="css/jsfcrud.css"/>
+                    </h:head>
+               <!--     <h:body>
+                    <h:form>
+                        <c:choose>
+                        <c:when test="#{proContrl.lst.size()!=0}">
+                            
+                            <h:dataTable value="#{proContrl.lst}" var="em"   style="border-collapse: collapse" border="1" cellpadding="10px">
+                            <h:column>
+                                <f:facet name="header">Name</f:facet>
+                                #{em.name}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Price</f:facet>
+                                #{em.price}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Image</f:facet>
+                                #{em.image}
+                            </h:column>
+                        </h:dataTable>
+                        </c:when>
+                            <c:otherwise>
+                                no result found
+                            </c:otherwise>
+                        </c:choose>
+                    </h:form> 
+                    </h:body>
+-->
+
+<ui:insert name="content"/>
+
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+          
+        </h:body>
+
+
+
+
+    </f:view>
+</html>
+
